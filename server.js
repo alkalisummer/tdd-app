@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 
 //Constants
 const port = 5001;
@@ -6,16 +7,14 @@ const port = 5001;
 //App
 const app = express(); // 새로운 Express 어플 생성
 const productRoutes = require('./routes');
-var client = require('mongodb').MongoClient;
 
-client.connect(process.env.MONGODB_URL, (error, db) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log('connected:' + db);
-    db.close();
-  }
-});
+const client = require('mongodb').MongoClient;
+const url = process.env.MONGODB_URL;
+
+client
+  .connect(url)
+  .then(() => console.log('MongoDB connected'))
+  .catch((err) => console.log(err));
 
 app.use('/api/products', productRoutes); //request.body로 파라미터를 받아오기 위함
 
