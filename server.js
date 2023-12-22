@@ -8,7 +8,7 @@ const port = 5001;
 const app = express(); // 새로운 Express 어플 생성
 const productRoutes = require('./routes');
 
-const client = require('mongodb').MongoClient;
+const client = require('mongoose');
 const url = process.env.MONGODB_URL;
 
 client
