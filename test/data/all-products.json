@@ -1,0 +1,17 @@
+[
+  {
+    "name": "knit",
+    "description": "good to wear",
+    "price": 1000
+  },
+  {
+    "name": "knit2",
+    "description": "good to wear",
+    "price": 1500
+  },
+  {
+    "name": "knit3",
+    "description": "good to wear",
+    "price": 1200
+  }
+]
