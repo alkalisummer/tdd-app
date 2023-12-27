@@ -6,6 +6,7 @@ const port = 5001;
 
 //App
 const app = express(); // 새로운 Express 어플 생성
+app.use(express.json());
 const productRoutes = require('./routes');
 
 const client = require('mongoose');
