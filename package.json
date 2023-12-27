@@ -4,7 +4,7 @@
   "description": "Test Driven Development 테스트 Repository",
   "main": "server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --runInBand --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",

@@ -24,6 +24,12 @@ app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
+app.use((error, req, res, next) => {
+  res.status(500).json({ message: error.message });
+});
+
 //해당 포트에서 HTTP 서버를 시작
-app.listen(port);
-console.log(`Running on ${port}`);
+//app.listen(port);
+// console.log(`Running on ${port}`);
+
+module.exports = app;
