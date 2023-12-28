@@ -27,11 +27,19 @@ exports.getProductById = async (req, res, next) => {
       res.status(404).send();
     }
   } catch (error) {
-    console.log(error);
     next(error);
   }
 };
 
 exports.updateProduct = async (req, res, next) => {
-  await productModel.findByIdAndUpdate(req.params.productId, req.body, { new: true });
+  try {
+    let updatedProduct = await productModel.findByIdAndUpdate(req.params.productId, req.body, { new: true });
+    if (updatedProduct) {
+      res.status(200).json(updatedProduct);
+    } else {
+      res.status(404).send();
+    }
+  } catch (error) {
+    next(error);
+  }
 };
